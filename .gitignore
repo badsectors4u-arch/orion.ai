@@ -19,3 +19,12 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Binaries
+nmap*.exe
+*.exe
+*.msi

@@ -1,0 +1,548 @@
+{
+  "vulnerabilities": [
+    {
+      "id": "f60f2c1d-dc7f-4575-b92a-5cd60f2c4044",
+      "title": "Web Server Version Disclosure: Microsoft-IIS/8.5",
+      "severity": "info",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-200",
+      "cvss_score": 2.0,
+      "description": "### 📍 Vulnerability Location\n- **Target URL**: `http://testaspnet.vulnweb.com/`\n- **Vulnerable Component / Parameter**: `HTTP Response Header: Server / X-Powered-By`\n- **Protocol & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload / Indicator**: `Banner String in HTTP Response: 'Web server version banner exposed: 'Microsoft-IIS/8.5'.'`\n- **Verification Vector**: Automated Security Audit Probe\n- **CVSS v3.1 Vector String**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nWeb server version banner exposed: 'Microsoft-IIS/8.5'.\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Unified Base Score**: **2.0 (Info)**\n- **Authoritative Taxonomy**: **CWE-200**\n- **Impact Assessment**: May permit unauthorized perimeter discovery, session integrity compromise, or execution alteration.",
+      "remediation_steps": [
+        "Configure web server to suppress banner tokens."
+      ]
+    },
+    {
+      "id": "b3fc8e7f-51e0-4412-b122-9f3316bb92fe",
+      "title": "Missing Security Header: strict-transport-security",
+      "severity": "medium",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-319",
+      "cvss_score": 5.4,
+      "description": "### 📍 Vulnerability Location\n- **Target URL**: `http://testaspnet.vulnweb.com/`\n- **Vulnerable Component / Parameter**: `HTTP Response Header: Strict-Transport-Security`\n- **Protocol & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload / Indicator**: `Missing HTTP Header: 'Strict-Transport-Security'`\n- **Verification Vector**: Automated Security Audit Probe\n- **CVSS v3.1 Vector String**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nMissing HTTP Strict Transport Security (HSTS).\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Unified Base Score**: **5.4 (Medium)**\n- **Authoritative Taxonomy**: **CWE-319**\n- **Impact Assessment**: May permit unauthorized perimeter discovery, session integrity compromise, or execution alteration.",
+      "remediation_steps": [
+        "Add 'Strict-Transport-Security: max-age=31536000; includeSubDomains' to all HTTPS responses."
+      ]
+    },
+    {
+      "id": "0c5562cc-5899-452c-8a87-7fcb1f0d2d8e",
+      "title": "Missing Security Header: content-security-policy",
+      "severity": "high",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-693",
+      "cvss_score": 7.5,
+      "description": "### 📍 Vulnerability Location\n- **Target URL**: `http://testaspnet.vulnweb.com/`\n- **Vulnerable Component / Parameter**: `HTTP Response Header: Content-Security-Policy`\n- **Protocol & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload / Indicator**: `Missing HTTP Header: 'Content-Security-Policy'`\n- **Verification Vector**: Automated Security Audit Probe\n- **CVSS v3.1 Vector String**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nMissing Content-Security-Policy (CSP).\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Unified Base Score**: **7.5 (High)**\n- **Authoritative Taxonomy**: **CWE-693**\n- **Impact Assessment**: May permit unauthorized perimeter discovery, session integrity compromise, or execution alteration.",
+      "remediation_steps": [
+        "Implement a strict Content-Security-Policy to mitigate XSS and data injection attacks."
+      ]
+    },
+    {
+      "id": "265f8fed-c7ca-4433-b6f4-5280ac229a31",
+      "title": "Missing Security Header: x-frame-options",
+      "severity": "medium",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-1021",
+      "cvss_score": 5.4,
+      "description": "### 📍 Vulnerability Location\n- **Target URL**: `http://testaspnet.vulnweb.com/`\n- **Vulnerable Component / Parameter**: `HTTP Response Header: X-Frame-Options`\n- **Protocol & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload / Indicator**: `Missing HTTP Header: 'X-Frame-Options'`\n- **Verification Vector**: Automated Security Audit Probe\n- **CVSS v3.1 Vector String**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nMissing X-Frame-Options (Clickjacking protection).\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Unified Base Score**: **5.4 (Medium)**\n- **Authoritative Taxonomy**: **CWE-1021**\n- **Impact Assessment**: May permit unauthorized perimeter discovery, session integrity compromise, or execution alteration.",
+      "remediation_steps": [
+        "Set 'X-Frame-Options: DENY' or 'SAMEORIGIN'."
+      ]
+    },
+    {
+      "id": "178ea618-c40d-4a76-b7d0-ed34741e17d9",
+      "title": "Missing Security Header: x-content-type-options",
+      "severity": "low",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-693",
+      "cvss_score": 3.7,
+      "description": "### 📍 Vulnerability Location\n- **Target URL**: `http://testaspnet.vulnweb.com/`\n- **Vulnerable Component / Parameter**: `HTTP Response Header: X-Content-Type-Options`\n- **Protocol & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload / Indicator**: `Missing HTTP Header: 'X-Content-Type-Options'`\n- **Verification Vector**: Automated Security Audit Probe\n- **CVSS v3.1 Vector String**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nMissing X-Content-Type-Options.\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Unified Base Score**: **3.7 (Low)**\n- **Authoritative Taxonomy**: **CWE-693**\n- **Impact Assessment**: May permit unauthorized perimeter discovery, session integrity compromise, or execution alteration.",
+      "remediation_steps": [
+        "Set 'X-Content-Type-Options: nosniff' to prevent MIME-sniffing attacks."
+      ]
+    },
+    {
+      "id": "c42ca150-b256-411d-8e68-1b94566b9f89",
+      "title": "Missing Security Header: referrer-policy",
+      "severity": "low",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-200",
+      "cvss_score": 3.7,
+      "description": "### 📍 Vulnerability Location\n- **Target URL**: `http://testaspnet.vulnweb.com/`\n- **Vulnerable Component / Parameter**: `Network / Application Endpoint`\n- **Protocol & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload / Indicator**: `Automated scanner diagnostic signature verification`\n- **Verification Vector**: Automated Security Audit Probe\n- **CVSS v3.1 Vector String**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nMissing Referrer-Policy.\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Unified Base Score**: **3.7 (Low)**\n- **Authoritative Taxonomy**: **CWE-200**\n- **Impact Assessment**: May permit unauthorized perimeter discovery, session integrity compromise, or execution alteration.",
+      "remediation_steps": [
+        "Set 'Referrer-Policy: strict-origin-when-cross-origin'."
+      ]
+    },
+    {
+      "id": "0ccde395-7734-49f2-8f89-7f40b8cf5607",
+      "title": "Exposed File/Directory: /robots.txt",
+      "severity": "info",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-200",
+      "cvss_score": 2.0,
+      "description": "### 📍 Vulnerability Location\n- **Target URL**: `http://testaspnet.vulnweb.com/`\n- **Vulnerable Component / Parameter**: `Network / Application Endpoint`\n- **Protocol & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload / Indicator**: `Automated scanner diagnostic signature verification`\n- **Verification Vector**: Automated Security Audit Probe\n- **CVSS v3.1 Vector String**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nDirect HTTP probe returned status 200 for path: http://testaspnet.vulnweb.com/robots.txt\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Unified Base Score**: **2.0 (Info)**\n- **Authoritative Taxonomy**: **CWE-200**\n- **Impact Assessment**: May permit unauthorized perimeter discovery, session integrity compromise, or execution alteration.",
+      "remediation_steps": [
+        "Ensure web server forbids listing and downloading of sensitive administrative and backup files."
+      ]
+    },
+    {
+      "id": "89c71574-e6d1-45a9-bdf7-617a8ae8a814",
+      "title": "SQL Syntax Error Crash in 'id' Parameter",
+      "severity": "critical",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-89",
+      "cvss_score": 9.5,
+      "description": "### 📍 Vulnerability Location\n- **Target URL**: `http://testaspnet.vulnweb.com/`\n- **Vulnerable Component / Parameter**: `Network / Application Endpoint`\n- **Protocol & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload / Indicator**: `Automated scanner diagnostic signature verification`\n- **Verification Vector**: Automated Security Audit Probe\n- **CVSS v3.1 Vector String**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nInjecting a single-quote syntax probe into parameter 'id' caused an unhandled backend database crash (response dropped from 13367 bytes to 0 bytes, status 200).\nTested URL: http://testaspnet.vulnweb.com/Comments.aspx?id=1%27\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Unified Base Score**: **9.5 (Critical)**\n- **Authoritative Taxonomy**: **CWE-89**\n- **Impact Assessment**: May permit unauthorized perimeter discovery, session integrity compromise, or execution alteration.",
+      "remediation_steps": [
+        "Sanitize query parameters and bind inputs using prepared statements."
+      ]
+    },
+    {
+      "id": "ef6d1b90-5147-4864-9bfa-d2a1ee3df20a",
+      "title": "Suspected IDOR via Query Parameter 'id'",
+      "severity": "high",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-639",
+      "cvss_score": 8.6,
+      "description": "### 📍 Vulnerability Location\n- **Target URL**: `http://testaspnet.vulnweb.com/`\n- **Vulnerable Component / Parameter**: `Network / Application Endpoint`\n- **Protocol & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload / Indicator**: `Automated scanner diagnostic signature verification`\n- **Verification Vector**: Automated Security Audit Probe\n- **CVSS v3.1 Vector String**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nParameter 'id' accepted sequential identifier 2 returning distinct data.\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Unified Base Score**: **8.6 (High)**\n- **Authoritative Taxonomy**: **CWE-639**\n- **Impact Assessment**: May permit unauthorized perimeter discovery, session integrity compromise, or execution alteration.",
+      "remediation_steps": [
+        "Validate current session ownership for the requested object on every API call."
+      ]
+    },
+    {
+      "id": "f1819fb1-067b-4bcf-b844-de5427d7593c",
+      "title": "[AI-Hunter] Unhandled Database Crash (Potential Blind SQLi) in 'id'",
+      "severity": "high",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-89",
+      "cvss_score": 8.5,
+      "description": "### 📍 Vulnerability Location\n- **Target URL / Endpoint**: `/Comments.aspx`\n- **Full Target URL**: `http://testaspnet.vulnweb.com/Comments.aspx?id=3%27`\n- **Vulnerable Parameter / Component**: `id`\n- **Service & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload**: `'`\n- **Verification Technique**: Severe response length anomaly (baseline > 800 bytes vs probe = 0 bytes)\n- **CVSS v3.1 Vector**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nInjecting single-quote syntax characters into parameter 'id' on /Comments.aspx caused the server to return an empty 0-byte response, whereas the baseline returned 14112 bytes. This severe crash differential strongly indicates an unhandled server-side database exception.\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Base Score**: **8.5 (High)**\n- **Authoritative Classification**: **CWE-89**\n- **Business Impact**: Unauthorized data compromise, application integrity degradation, or perimeter access bypass.",
+      "remediation_steps": [
+        "Implement parameterized queries to safely bind user input.",
+        "Implement comprehensive error handling and logging without suppressing or abruptly terminating HTTP responses."
+      ]
+    },
+    {
+      "id": "966b99e4-d60b-42d6-b7d4-177091111882",
+      "title": "[AI-Hunter] Insecure Direct Object Reference (IDOR) on 'id'",
+      "severity": "high",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-639",
+      "cvss_score": 8.5,
+      "description": "### 📍 Vulnerability Location\n- **Target URL / Endpoint**: `/Comments.aspx`\n- **Full Target URL**: `http://testaspnet.vulnweb.com/Comments.aspx?id=4`\n- **Vulnerable Parameter / Component**: `id`\n- **Service & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload**: `id=4`\n- **Verification Technique**: Sequential identifier mutation successfully retrieved distinct record without authorization\n- **CVSS v3.1 Vector**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nParameter 'id' on /Comments.aspx exposed distinct user/object records when incrementing value from 3 to 4 without session ownership validation.\nBaseline URL: http://testaspnet.vulnweb.com/Comments.aspx?id=3\nMutated URL: http://testaspnet.vulnweb.com/Comments.aspx?id=4\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Base Score**: **8.5 (High)**\n- **Authoritative Classification**: **CWE-639**\n- **Business Impact**: Unauthorized data compromise, application integrity degradation, or perimeter access bypass.",
+      "remediation_steps": [
+        "Implement server-side authorization checks verifying that the authenticated user owns the requested record.",
+        "Use indirect reference maps (UUIDs or cryptographic hashes) instead of direct sequential database integers."
+      ]
+    },
+    {
+      "id": "653ea0ce-8bfe-4c78-a014-c0e321686c6e",
+      "title": "[AI-Hunter] ASP.NET Diagnostic Endpoint Detected: /trace.axd",
+      "severity": "low",
+      "service": "http",
+      "port": 80,
+      "cve_id": "CWE-200",
+      "cvss_score": 4.3,
+      "description": "### 📍 Vulnerability Location\n- **Target URL / Endpoint**: `/trace.axd`\n- **Full Target URL**: `http://testaspnet.vulnweb.com/trace.axd`\n- **Vulnerable Parameter / Component**: N/A (Path/Header/Direct Resource)\n- **Service & Port**: `http` / Port 80\n\n### 💥 Exploitation Proof & Payload\n- **Tested Payload**: `/trace.axd`\n- **Verification Technique**: HTTP 403 Forbidden confirms existence of internal diagnostic module\n- **CVSS v3.1 Vector**: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N`\n\n### 🔬 Technical Analysis & Vulnerability Mechanics\nAccessing http://testaspnet.vulnweb.com/trace.axd returned HTTP 403 Forbidden, confirming the module is installed on the web server. Attackers can use this information to identify ASP.NET architecture and attempt authorization bypasses.\n\n### 📊 Threat Severity & CVSS v3.1 Scoring\n- **CVSS v3.1 Base Score**: **4.3 (Low)**\n- **Authoritative Classification**: **CWE-200**\n- **Business Impact**: Unauthorized data compromise, application integrity degradation, or perimeter access bypass.",
+      "remediation_steps": [
+        "Remove unused diagnostic handlers from web.config altogether if not required in production."
+      ]
+    }
+  ],
+  "attack_graph": {
+    "nodes": [
+      {
+        "id": "node-1",
+        "type": "target",
+        "label": "http://testaspnet.vulnweb.com/",
+        "severity": "info"
+      },
+      {
+        "id": "node-2",
+        "type": "service",
+        "label": "HTTP :80",
+        "severity": "info"
+      },
+      {
+        "id": "node-3",
+        "type": "vulnerability",
+        "label": "SQL Injection (CWE-89)",
+        "severity": "critical"
+      },
+      {
+        "id": "node-4",
+        "type": "root",
+        "label": "Full System Compromise",
+        "severity": "critical"
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge-1-2",
+        "source": "node-1",
+        "target": "node-2",
+        "label": "Exposes",
+        "animated": true
+      },
+      {
+        "id": "edge-2-3",
+        "source": "node-2",
+        "target": "node-3",
+        "label": "Allows exploitation via",
+        "animated": true
+      },
+      {
+        "id": "edge-3-4",
+        "source": "node-3",
+        "target": "node-4",
+        "label": "Leads to",
+        "animated": true
+      }
+    ]
+  },
+  "ai_analysis": {
+    "summary": "Analysis complete.",
+    "risk_score": 88.5,
+    "top_recommendations": [
+      "Implement parameterized queries and prepared statements to eliminate SQL Injection risks.",
+      "Enforce server-side authorization checks and use indirect object references (UUID) to prevent IDOR attacks."
+    ],
+    "priority_matrix": {
+      "immediate": [
+        "SQL Syntax Error Crash in 'id' Parameter (CVSS 9.5)",
+        "Exposed File/Directory: /robots.txt (CVSS 2.0)",
+        "Missing Security Header: Content-Security-Policy (CVSS 7.5)",
+        "Suspected IDOR via Query Parameter 'id' (CVSS 8.6)",
+        "Unhandled Database Crash (Potential Blind SQLi) in 'id' (CVSS 8.5)"
+      ],
+      "short_term": [
+        "Missing Security Header: Strict-Transport-Security (CVSS 5.4)",
+        "Missing Security Header: X-Frame-Options (CVSS 5.4)",
+        "ASP.NET Diagnostic Endpoint Detected: /trace.axd (CVSS 4.3)",
+        "Missing X-Content-Type-Options (CVSS 3.7)",
+        "Missing Referrer-Policy (CVSS 3.7)",
+        "Web Server Version Disclosure: Microsoft-IIS/8.5 (CVSS 2.0)"
+      ]
+    },
+    "fallback": false
+  },
+  "risk_score": 88.5,
+  "tools_used": [
+    "gau",
+    "ai_deep_hunter",
+    "whatweb",
+    "linkfinder",
+    "sqlmap",
+    "nuclei",
+    "httpx",
+    "headers",
+    "katana",
+    "nmap",
+    "ffuf",
+    "subfinder",
+    "secretfinder",
+    "dalfox",
+    "ssl",
+    "idor",
+    "arjun",
+    "corsy"
+  ],
+  "scan_duration_seconds": 226.34,
+  "recon": {
+    "tech_fingerprint": {
+      "server": "Microsoft-IIS/8.5",
+      "technologies": [
+        "ASP.NET",
+        "Microsoft-IIS"
+      ],
+      "cdn": null,
+      "status_code": 200,
+      "title": "acublog news",
+      "ip": "44.238.29.244",
+      "tls_version": null,
+      "headers": {
+        "cache-control": "private",
+        "content-type": "text/html; charset=utf-8",
+        "server": "Microsoft-IIS/8.5",
+        "x-aspnet-version": "2.0.50727",
+        "set-cookie": "ASP.NET_SessionId=ac5zzjuonnrwum55k0jnph45; path=/; HttpOnly",
+        "x-powered-by": "ASP.NET",
+        "date": "Sat, 31 Oct 2026 16:53:17 GMT",
+        "content-length": "14111"
+      }
+    },
+    "cms_info": {
+      "cms_name": null,
+      "cms_version": null,
+      "plugins": [],
+      "theme": null
+    },
+    "subdomains": [
+      {
+        "subdomain": "testaspnet.vulnweb.com",
+        "ip": "44.238.29.244",
+        "status_code": 200,
+        "is_alive": true
+      }
+    ],
+    "raw_subdomains": [],
+    "live_subdomains": [
+      "testaspnet.vulnweb.com"
+    ]
+  },
+  "discovery": {
+    "crawled_urls": [
+      "http://testaspnet.vulnweb.com/",
+      "http://testaspnet.vulnweb.com/Comments.aspx?id=0",
+      "http://testaspnet.vulnweb.com/Comments.aspx?id=2",
+      "http://testaspnet.vulnweb.com/Comments.aspx?id=3",
+      "http://testaspnet.vulnweb.com/ReadNews.aspx?id=0",
+      "http://testaspnet.vulnweb.com/ReadNews.aspx?id=0&NewsAd=ads/def.html",
+      "http://testaspnet.vulnweb.com/ReadNews.aspx?id=0&amp;NewsAd=ads%2fdef.html",
+      "http://testaspnet.vulnweb.com/ReadNews.aspx?id=2",
+      "http://testaspnet.vulnweb.com/ReadNews.aspx?id=2&NewsAd=ads/def.html",
+      "http://testaspnet.vulnweb.com/ReadNews.aspx?id=2&amp;NewsAd=ads%2fdef.html",
+      "http://testaspnet.vulnweb.com/ReadNews.aspx?id=3",
+      "http://testaspnet.vulnweb.com/ReadNews.aspx?id=3&NewsAd=ads/def.html",
+      "http://testaspnet.vulnweb.com/ReadNews.aspx?id=3&amp;NewsAd=ads%2fdef.html",
+      "http://testaspnet.vulnweb.com/Signup.aspx",
+      "http://testaspnet.vulnweb.com/about.aspx",
+      "http://testaspnet.vulnweb.com/admin",
+      "http://testaspnet.vulnweb.com/api",
+      "http://testaspnet.vulnweb.com/default.aspx",
+      "http://testaspnet.vulnweb.com/login",
+      "http://testaspnet.vulnweb.com/login.aspx",
+      "http://testaspnet.vulnweb.com/rssFeed.aspx",
+      "http://testaspnet.vulnweb.com/styles.css",
+      "http://testaspnet.vulnweb.com/web.config"
+    ],
+    "forms": [
+      {
+        "url": "http://testaspnet.vulnweb.com/",
+        "method": "POST",
+        "action": "default.aspx",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/about.aspx",
+        "method": "POST",
+        "action": "about.aspx",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/default.aspx",
+        "method": "POST",
+        "action": "default.aspx",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/login.aspx",
+        "method": "POST",
+        "action": "login.aspx",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup",
+          "tbUsername",
+          "tbPassword",
+          "cbPersistCookie",
+          "btnLogin"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/Signup.aspx",
+        "method": "POST",
+        "action": "Signup.aspx",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup",
+          "tbUsername",
+          "tbPassword",
+          "btnSignup"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/Comments.aspx?id=0",
+        "method": "POST",
+        "action": "Comments.aspx?id=0",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup",
+          "tbComment",
+          "btnSend"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=0&NewsAd=ads/def.html",
+        "method": "POST",
+        "action": "ReadNews.aspx?id=0&amp;NewsAd=ads%2fdef.html",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/Comments.aspx?id=3",
+        "method": "POST",
+        "action": "Comments.aspx?id=3",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup",
+          "tbComment",
+          "btnSend"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=3&NewsAd=ads/def.html",
+        "method": "POST",
+        "action": "ReadNews.aspx?id=3&amp;NewsAd=ads%2fdef.html",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/Comments.aspx?id=2",
+        "method": "POST",
+        "action": "Comments.aspx?id=2",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup",
+          "tbComment",
+          "btnSend"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=2&NewsAd=ads/def.html",
+        "method": "POST",
+        "action": "ReadNews.aspx?id=2&amp;NewsAd=ads%2fdef.html",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=0",
+        "method": "POST",
+        "action": "ReadNews.aspx?id=0",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=3",
+        "method": "POST",
+        "action": "ReadNews.aspx?id=3",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup"
+        ]
+      },
+      {
+        "url": "http://testaspnet.vulnweb.com/ReadNews.aspx?id=2",
+        "method": "POST",
+        "action": "ReadNews.aspx?id=2",
+        "params": [
+          "__VIEWSTATE",
+          "__VIEWSTATEGENERATOR",
+          "__EVENTVALIDATION",
+          "lnkLog",
+          "lnkSignup"
+        ]
+      }
+    ],
+    "js_files": [],
+    "js_endpoints": [],
+    "archived_urls": [],
+    "hidden_params": {
+      "http://testaspnet.vulnweb.com/Comments.aspx?id=0": [
+        "debug",
+        "admin",
+        "redirect",
+        "url",
+        "test"
+      ],
+      "http://testaspnet.vulnweb.com/Comments.aspx?id=2": [
+        "debug",
+        "admin",
+        "redirect",
+        "url",
+        "test"
+      ],
+      "http://testaspnet.vulnweb.com/Comments.aspx?id=3": [
+        "debug",
+        "admin",
+        "redirect",
+        "url",
+        "test"
+      ],
+      "http://testaspnet.vulnweb.com/ReadNews.aspx?id=0": [
+        "debug",
+        "admin",
+        "redirect",
+        "url",
+        "test"
+      ]
+    },
+    "leaked_secrets": []
+  },
+  "attack_chains": []
+}
