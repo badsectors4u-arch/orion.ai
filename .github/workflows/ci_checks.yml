@@ -36,6 +36,20 @@ jobs:
       - run: cp .env.example .env
       - run: docker compose build
       - run: docker compose up -d
-      - run: sleep 15
-      - run: curl -f http://localhost/api/health
+      - name: Wait for backend health
+        run: |
+          for i in $(seq 1 20); do
+            if curl -fs http://localhost/api/health; then
+              echo "Backend is healthy."
+              exit 0
+            fi
+            echo "Waiting for backend to become healthy... ($i/20)"
+            sleep 3
+          done
+          echo "::error::Backend did not become healthy in time. Container logs follow."
+          docker compose ps
+          docker compose logs backend
+          docker compose logs celery_worker
+          exit 1
       - run: docker compose down
+        if: always()
