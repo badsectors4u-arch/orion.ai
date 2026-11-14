@@ -4,9 +4,16 @@
 # Stage 1: compile the Go-based scanning tools (ProjectDiscovery's httpx/katana/
 # nuclei/subfinder, plus dalfox, ffuf, gau) so the final image doesn't need a
 # Go toolchain at runtime.
-FROM golang:1.22-alpine AS gobuild
+#
+# ProjectDiscovery's tools track the latest Go language version closely
+# (e.g. httpx currently requires go>=1.26, ahead of this base image's go1.24).
+# GOTOOLCHAIN=auto tells `go install` to download whatever newer toolchain a
+# module declares it needs instead of failing, so future @latest bumps that
+# need an even newer Go keep working without editing this Dockerfile.
+FROM golang:1.24-alpine AS gobuild
 RUN apk add --no-cache git
 ENV GOBIN=/go/bin
+ENV GOTOOLCHAIN=auto
 RUN go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest \
     && go install -v github.com/projectdiscovery/katana/cmd/katana@latest \
     && go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest \
